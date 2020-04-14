@@ -1,9 +1,15 @@
 import smtplib
+import email
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email import encoders
 
-# Conexión segura con el servidor
+# Defino las variables
 
 from_email = "sendtokindle.py@gmail.com"
 pssw = "Youtube2020"
+
+# Conexión segura con el servidor
 
 server = smtplib.SMTP_SSL(host='smtp.gmail.com', port=465)
 try:
@@ -12,12 +18,29 @@ try:
 except Exception as e:
     print(e)
 
+
+# Adjunto
+
+file = "GWAS.mobi"
+
+mail = MIMEMultipart()
+mail["From"] = from_email
+mail["To"] = from_email
+mail["Subject"] = "Convert"
+
+#De mi objeto Multipart voy añadiéndole cada una de las partes
+body = MIMEText("text", "plain")
+content = "This message is from python"
+body.set_payload("")
+mail.attach(body)
+
 # Mando el email
+
 server.sendmail(
   from_email,
   #input("Please, write your Kindle e-mail: "),
-  "sendtokindle.py@gmail.com",
-  "This message is from python") # Sólo admite string
+  from_email,
+  mail.as_string()) # Sólo admite string
 
 # Cierro la conexión con el servidor
 server.quit()
