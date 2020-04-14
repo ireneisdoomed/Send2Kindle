@@ -44,6 +44,12 @@ with open(file, "rb") as attachment:
 
 encoders.encode_base64(part2)
 
+# Añado nombre al archivo
+
+part2.add_header(
+    "Content-Disposition",
+    "attachment; filename= {}".format(file),
+)
 
 # Añado el objeto a mi objeto multiparte como antes
 
