@@ -1,13 +1,9 @@
 import smtplib
+from login import from_email, pssw
 import email
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email import encoders
-
-# Defino las variables
-
-from_email = "sendtokindle.py@gmail.com"
-pssw = "Youtube2020"
 
 # Conexión segura con el servidor
 
