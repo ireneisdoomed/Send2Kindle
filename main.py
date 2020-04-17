@@ -1,5 +1,5 @@
 import smtplib
-from login import from_email, pssw
+from src.login import from_email, pssw
 import email
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
@@ -20,12 +20,12 @@ except Exception as e:
 
 mail = MIMEMultipart()
 mail["From"] = from_email
-mail["To"] = from_email
+#mail["To"] = from_email
 mail["Subject"] = "Convert"
 
 # De mi objeto Multipart voy añadiéndole cada una de las partes
-part1 = MIMEText("text", "plain")
-content = "This message is from Python."
+part1 = MIMEText("text", "html")
+content = "You can follow me <a href='www.elpais.es'>here</a> for more projects."
 part1.set_payload(content)
 mail.attach(part1)
 
@@ -33,6 +33,7 @@ mail.attach(part1)
 
 # Mando el email
 
+# file = input("Enter path of the file. Supported formats: .mobi")
 file = "GWAS.mobi"
 
 with open(file, "rb") as attachment:
@@ -56,6 +57,8 @@ part2.add_header(
 mail.attach(part2)
 
 
+# Envío e-mail
+
 server.sendmail(
   from_email,
   #input("Please, write your Kindle e-mail: "),
@@ -64,6 +67,7 @@ server.sendmail(
 
 # Cierro la conexión con el servidor
 server.quit()
+print("Done! Your ebook is in your e-mail awaiting authorization.")
 
 
 """
@@ -71,5 +75,5 @@ Para mandar HTML. En sendmail en mensaje: msg.as_string()
 
 from email.mime.text import MIMEText
 
-msg = MIMEText(u'<a href="xxx">abc</a>','html')
+msg = MIMEText(u'<a href="www.elpais.es">Link</a>','html')
 """
