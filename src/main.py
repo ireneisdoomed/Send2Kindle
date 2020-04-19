@@ -5,6 +5,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email import encoders
+from convert import convert
 
 def crearConexion():
   # Conexión segura con el servidor
@@ -12,7 +13,7 @@ def crearConexion():
   server = smtplib.SMTP_SSL(host='smtp.gmail.com', port=465)
   try:
       server.login(from_email, pssw)
-      print("Successful connection!")
+      print("Successful connection! Cooking up your book...")
       return server
   except Exception as e:
       print(e)
@@ -31,6 +32,15 @@ def crearMIME(file, to_email):
   content = "You can follow me <a href='www.elpais.es'>here</a> for more projects."
   part1.set_payload(content)
   mail.attach(part1)
+
+  # Compruebo formato archivo
+
+  supportedFormats = ["doc", "docx", "html", "htm", "rtf", "jpeg", "jpg", "mobi", "azw", "gif", "png", "bmp", "pdf"]
+
+  if file.split(".")[-1] not in supportedFormats:
+    convertedFormat = file.split(".")[0] + ".mobi"
+    convert(file, convertedFormat)
+    file = convertedFormat
 
   # Adjunto archivo
 
@@ -55,7 +65,6 @@ def crearMIME(file, to_email):
   mail.attach(part2)
 
   return mail
-
 
 def mandar(to_email, mail, server):
   # Envío e-mail
