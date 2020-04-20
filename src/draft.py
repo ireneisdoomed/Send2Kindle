@@ -61,8 +61,7 @@ mail.attach(part2)
 
 server.sendmail(
   from_email,
-  #input("Please, write your Kindle e-mail: "),
-  from_email,
+  to_email,
   mail.as_string()) # Sólo admite string
 
 # Cierro la conexión con el servidor

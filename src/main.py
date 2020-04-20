@@ -25,7 +25,7 @@ def crearMIME(file, to_email):
   mail = MIMEMultipart()
   mail["From"] = from_email
   mail["To"] = to_email
-  mail["Subject"] = "Convert"
+  mail["Subject"] = "convert"
 
   # De mi objeto Multipart voy añadiéndole cada una de las partes
   part1 = MIMEText("text", "html")
