@@ -29,7 +29,7 @@ def crearMIME(file, to_email):
 
   # De mi objeto Multipart voy añadiéndole cada una de las partes
   part1 = MIMEText("text", "html")
-  content = "You can follow me <a href='www.elpais.es'>here</a> for more projects."
+  content = "You can follow me <a href='https://github.com/ireneisdoomed'>here</a> for more projects."
   part1.set_payload(content)
   mail.attach(part1)
 

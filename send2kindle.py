@@ -24,7 +24,6 @@ def main():
 
     mandar(args.to_email, mail, server)
     cerrarConexion(server)
-    server = 0
 
 def welcome():
     print("-----------------------------------------------")

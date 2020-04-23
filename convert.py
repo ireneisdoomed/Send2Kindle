@@ -1,10 +1,10 @@
-import subprocess
+from subprocess import check_output
 
 
 def convert(file, convertedFormat):
         try:
             bashCommand = "ebook-convert {0} {1}".format(file, convertedFormat)
-            output = subprocess.check_output(["bash", "-c", bashCommand])
+            output = check_output(["bash", "-c", bashCommand])
             print("Succesful conversion! {} file created.".format(convertedFormat))
             return output
 
