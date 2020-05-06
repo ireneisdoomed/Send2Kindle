@@ -5,7 +5,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email import encoders
-from convert import convert
+from src.convert import convert
 
 def crearConexion():
   # Conexión segura con el servidor
@@ -29,7 +29,7 @@ def crearMIME(file, to_email):
 
   # De mi objeto Multipart voy añadiéndole cada una de las partes
   part1 = MIMEText("text", "html")
-  content = "You can follow me <a href='https://github.com/ireneisdoomed'>here</a> for more projects."
+  content = "Follow me <a href='https://github.com/ireneisdoomed'>here</a> for more projects!"
   part1.set_payload(content)
   mail.attach(part1)
 
@@ -37,10 +37,12 @@ def crearMIME(file, to_email):
 
   supportedFormats = ["doc", "docx", "html", "htm", "rtf", "jpeg", "jpg", "mobi", "azw", "gif", "png", "bmp", "pdf"]
 
-  if file.split(".")[-1] not in supportedFormats:
-    convertedFormat = file.split(".")[0] + ".mobi"
+  
+  if file.endswith(tuple(supportedFormats)) == False:
+    convertedFormat = "convertedBook.mobi"
     convert(file, convertedFormat)
     file = convertedFormat
+
 
   # Adjunto archivo
 
@@ -79,4 +81,4 @@ def mandar(to_email, mail, server):
 def cerrarConexion(server):
   # Cierro la conexión con el servidor
   server.quit()
-  print("Done! Your ebook is in your e-mail awaiting authorization.")
+  print("Done! You can find you ebook in your Kindle in a few minutes. If not, check your e-mail for any problems.")
