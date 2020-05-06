@@ -12,7 +12,7 @@ You can see a good description of how it works in this [Youtube video](https://w
 Clone this repo to your local machine using:
 
 ```bash
-https://github.com/ireneisdoomed/Send2Kindle.git
+git clone https://github.com/ireneisdoomed/Send2Kindle.git
 ```
 
 ## Pre-requisites 📐
