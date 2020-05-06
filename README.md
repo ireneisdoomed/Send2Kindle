@@ -1,6 +1,6 @@
 # Send2Kindle
 
-<img src=https://github.com/ireneisdoomed/Send2Kindle/blob/master/images/thumbnail.png alt="200" width="850"/>
+<img src=https://github.com/ireneisdoomed/Send2Kindle/blob/master/images/thumbnail.jpg alt="150" width="750"/>
 
 Send2Kindle is a small application to automate the process of uploading an ebook to your Kindle.
 
