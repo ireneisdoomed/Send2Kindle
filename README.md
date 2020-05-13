@@ -1,4 +1,4 @@
-<img src=https://github.com/ireneisdoomed/Send2Kindle/blob/master/images/thumbnail.jpg alt="200" width="850"/>
+<img src=images/thumbnail.jpg alt="200" width="850"/>
 
 # Send2Kindle
 
