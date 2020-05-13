@@ -3,3 +3,4 @@ src/login.py
 src.draft.py
 Desposeidos.epub
 __pycache__
+.env

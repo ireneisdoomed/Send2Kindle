@@ -1,11 +1,17 @@
 import smtplib
-from src.login import from_email, pssw
 import email
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email import encoders
 from src.convert import convert
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+from_email = os.getenv("from_email")
+pssw = os.getenv("pssw")
 
 def crearConexion():
   # Conexión segura con el servidor
